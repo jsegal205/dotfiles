@@ -35,8 +35,6 @@ PACKAGES=(
 echo "=== Installing brew packages ==="
 brew install ${PACKAGES[@]}
 
-brew cleanup
-
 CASKS=(
   firefox
   google-chrome
@@ -47,6 +45,8 @@ CASKS=(
 
 echo "=== Installing brew casks ==="
 brew cask install ${CASKS[@]}
+
+brew cleanup
 
 ASDF_PLUGINS=(
   "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
