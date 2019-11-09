@@ -39,6 +39,7 @@ CASKS=(
   firefox
   google-chrome
   iterm2
+  postman
   slack
   visual-studio-code
 )
@@ -50,6 +51,7 @@ brew cleanup
 
 ASDF_PLUGINS=(
   "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
+  "python"
   "ruby https://github.com/asdf-vm/asdf-ruby.git"
 )
 
@@ -65,6 +67,7 @@ bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 ASDF_VERSIONS=(
   "nodejs 12.12.0"
+  "python 3.8.0"
   "ruby 2.6.3"
 )
 
