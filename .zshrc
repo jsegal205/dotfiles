@@ -13,6 +13,8 @@ plugins=(
   aws
   brew
   bundler
+  docker
+  docker-compose
   gem
   git
   npm
