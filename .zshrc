@@ -37,3 +37,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/bin:$PATH"
 
 . /usr/local/opt/asdf/asdf.sh
+
+RPROMPT="[%D{%m/%f/%y} | %D{%H:%M:%S}]"
