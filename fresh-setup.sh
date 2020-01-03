@@ -119,5 +119,8 @@ for file in "${RC_FILES[@]}"; do
   cp $file ~/$file
 done
 
+# copy vscode settings file to code directory
+cp settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+
 echo "=== Remember to run the following command after all is said and done ==="
 echo "source ~/.zshrc"

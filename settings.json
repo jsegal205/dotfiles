@@ -1,0 +1,22 @@
+// visual studio settings file
+{
+  "window.zoomLevel": 1,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 80,
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "editor.rulers": [80],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "html.format.wrapLineLength": 80,
+  "workbench.startupEditor": "none",
+  "asdf": "asdf"
+}
