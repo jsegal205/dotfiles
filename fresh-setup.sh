@@ -7,6 +7,35 @@
 echo "=== Installing xcode cli ==="
 xcode-select --install
 
+echo "=== Setting up OSX defaults ==="
+# create dir and set default location for screenshots
+mkdir -p ~/Desktop/screenshots
+defaults write com.apple.screencapture location ~/Desktop/screenshots
+
+# show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# always show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent YES
+
+# set clock to 24 hour with day of the week (ie 'Mon Jan 1 23:59:59')
+defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
+
+# enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable “natural” scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# kill things to take immediate effect
+killall SystemUIServer
+killall Finder
+
 if test ! $(which brew); then
   echo "=== Installing homebrew ==="
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
