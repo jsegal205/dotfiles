@@ -136,6 +136,9 @@ for file in "${RC_FILES[@]}"; do
   cp $file ~/$file
 done
 
+# should fix any cache error with zsh on terminal load or source
+rm -f ~/.zcompdump*; compinit
+
 # copy vscode settings file to code directory
 cp settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 
