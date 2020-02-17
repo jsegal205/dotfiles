@@ -81,6 +81,7 @@ CASKS=(
   firefox
   google-chrome
   iterm2
+  postico
   postman
   slack
   visual-studio-code
