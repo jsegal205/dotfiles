@@ -35,6 +35,10 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 # Remove all the things from the Dock
 defaults delete com.apple.dock persistent-apps; killall Dock
 
+# Set save dialog always expanded
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
 # kill things to take immediate effect
 killall SystemUIServer
 killall Finder
