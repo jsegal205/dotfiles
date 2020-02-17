@@ -136,7 +136,8 @@ for file in "${RC_FILES[@]}"; do
   cp $file ~/$file
 done
 
-# should fix any cache error with zsh on terminal load or source
+# should fix compdef errors like:
+# ` compdef: unknown command or service: rails `
 rm -f ~/.zcompdump*; compinit
 
 # copy vscode settings file to code directory
