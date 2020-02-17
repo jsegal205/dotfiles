@@ -88,7 +88,7 @@ CASKS=(
 )
 
 echo "=== Installing brew casks ==="
-brew cask install ${CASKS[@]}
+brew cask install --no-quarantine ${CASKS[@]}
 
 brew cleanup
 
