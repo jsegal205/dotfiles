@@ -43,11 +43,15 @@ OR manually
 
 ### System Preferences
 
-#### Notifications
+#### Display and ScreenSaver
 
-- turn off notifications
+- remove screen saver time
 
 #### Keyboard
 
 - remove Siri from touch bar
 - add lock computer to touch bar
+
+#### Notifications
+
+- turn off notifications
