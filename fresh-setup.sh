@@ -55,9 +55,9 @@ PACKAGES=(
   coreutils
   git
   gpg
-  mysql
   npm
   openssl
+  postgres
   yarn
 )
 
@@ -68,6 +68,7 @@ echo "=== ZSH Syntax Highlighting ==="
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 CASKS=(
+  ccleaner
   firefox
   google-chrome
   iterm2
