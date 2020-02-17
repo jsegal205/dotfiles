@@ -32,6 +32,9 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Disable “natural” scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
+# Remove all the things from the Dock
+defaults delete com.apple.dock persistent-apps; killall Dock
+
 # kill things to take immediate effect
 killall SystemUIServer
 killall Finder
