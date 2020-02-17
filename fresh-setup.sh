@@ -62,6 +62,7 @@ PACKAGES=(
   coreutils
   git
   gpg
+  heroku
   npm
   openssl
   postgres
@@ -69,6 +70,7 @@ PACKAGES=(
 )
 
 echo "=== Installing brew packages ==="
+brew tap heroku/brew
 brew install ${PACKAGES[@]}
 
 echo "=== ZSH Syntax Highlighting ==="
