@@ -38,7 +38,7 @@ OR manually
 
 - TODO: make this a script
 
-```
+```bash
     ssh-keygen -t rsa -b 4096 -C "jsegal205@gmail.com"
     == create password ==
     eval "$(ssh-agent -s)"
@@ -82,4 +82,4 @@ OR manually
 
 ### Notifications
 
-- turn off notifications
+- turn off application notifications
