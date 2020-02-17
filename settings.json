@@ -17,6 +17,5 @@
   "editor.rulers": [80],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "html.format.wrapLineLength": 80,
-  "workbench.startupEditor": "none",
-  "asdf": "asdf"
+  "workbench.startupEditor": "none"
 }
