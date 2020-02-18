@@ -39,9 +39,13 @@ defaults delete com.apple.dock persistent-apps; killall Dock
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# Set minimize animation to scale
+defaults write com.apple.dock mineffect -string scale
+
 # kill things to take immediate effect
 killall SystemUIServer
 killall Finder
+killall Dock
 
 if test ! $(which brew); then
   echo "=== Installing homebrew ==="
