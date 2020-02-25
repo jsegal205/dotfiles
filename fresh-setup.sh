@@ -144,5 +144,9 @@ done
 # ` compdef: unknown command or service: rails `
 rm -f ~/.zcompdump*; compinit
 
+echo "=== Remove default programs that are bundled with OSX ==="
+sudo rm -rf /Applications/iMovie.app
+sudo rm -rf /Applications/GarageBand.app
+
 echo "=== Remember to run the following command after all is said and done ==="
 echo "source ~/.zshrc"
