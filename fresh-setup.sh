@@ -67,6 +67,7 @@ PACKAGES=(
   git
   gpg
   heroku
+  mas
   npm
   openssl
   postgres
@@ -80,7 +81,7 @@ brew install ${PACKAGES[@]}
 SERVICES=(
   postgres
 )
-echo "=== Starting brew services"
+echo "=== Starting brew services ==="
 brew services start ${SERVICES[@]}
 
 echo "=== ZSH Syntax Highlighting ==="
@@ -148,5 +149,16 @@ echo "=== Remove default programs that are bundled with OSX ==="
 sudo rm -rf /Applications/iMovie.app
 sudo rm -rf /Applications/GarageBand.app
 
-echo "=== Remember to run the following command after all is said and done ==="
+echo "=== Remember to run the following commands next: ==="
+echo
+echo
+echo
 echo "source ~/.zshrc"
+echo
+echo
+echo
+echo "Sign into Apple store then run the following command: "
+echo
+echo
+echo
+echo "mas lucky xcode"
