@@ -75,7 +75,7 @@ PACKAGES=(
   mas
   npm
   openssl@1.1
-  postgres
+  postgresql@14
   wxwidgets
   yarn
 )
@@ -84,7 +84,7 @@ echo "=== Installing brew packages ==="
 brew install ${PACKAGES[@]}
 
 SERVICES=(
-  postgres
+  postgresql@14
 )
 echo "=== Starting brew services ==="
 brew services start ${SERVICES[@]}
