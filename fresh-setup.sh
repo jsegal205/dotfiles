@@ -121,11 +121,6 @@ for asdf_plugin in "${ASDF_PLUGINS[@]}"; do
   asdf plugin-add $asdf_plugin
 done
 
-# need to update the keyring per nodejs asdf plugin
-# https://github.com/asdf-vm/asdf-nodejs#install
-echo "=== Setting keyring for asdf NodeJS ==="
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-
 ASDF_VERSIONS=(
   "erlang 25.1.2"
   "elixir 1.14.2-otp-25"
