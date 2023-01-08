@@ -63,19 +63,21 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 PACKAGES=(
   asdf
+  autoconf
   coreutils
+  fop
   git
   gpg
-  heroku
+  libxslt
   mas
   npm
-  openssl
+  openssl@1.1
   postgres
+  wxwidgets
   yarn
 )
 
 echo "=== Installing brew packages ==="
-brew tap heroku/brew
 brew install ${PACKAGES[@]}
 
 SERVICES=(
@@ -88,25 +90,25 @@ echo "=== ZSH Syntax Highlighting ==="
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 CASKS=(
-  ccleaner
   firefox
   google-chrome
-  iterm2
   postico
   postman
   slack
+  spotify
   visual-studio-code
 )
 
 echo "=== Installing brew casks ==="
-brew cask install --no-quarantine ${CASKS[@]}
+brew install --cask --no-quarantine ${CASKS[@]}
 
 brew cleanup
 
 ASDF_PLUGINS=(
+  "elixir https://github.com/asdf-vm/asdf-elixir.git"
+  "erlang https://github.com/asdf-vm/asdf-erlang.git"
   "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
   "python"
-  "ruby https://github.com/asdf-vm/asdf-ruby.git"
 )
 
 echo "=== Installing asdf plugins ==="
@@ -120,12 +122,14 @@ echo "=== Setting keyring for asdf NodeJS ==="
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 ASDF_VERSIONS=(
-  "nodejs 12.12.0"
+  "elixir 1.14.2-otp-25"
+  "erlang 25.1.2"
+  "nodejs 18.9.0"
   "python 3.8.0"
-  "ruby 2.6.3"
 )
 
 echo "=== Installing asdf versions ==="
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
 for asdf_version in "${ASDF_VERSIONS[@]}"; do
   asdf install $asdf_version
   asdf global $asdf_version
@@ -133,7 +137,6 @@ done
 
 echo "=== Copying rc files ==="
 RC_FILES=(
-  .gemrc
   .vimrc
   .zshrc
 )

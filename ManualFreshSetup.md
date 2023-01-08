@@ -63,10 +63,6 @@ OR manually
 
 ## Services
 
-### Postgres
-
-- Create JimSegalApi database
-- run migrations from https://github.com/jsegal205/jimsegal-db
 - add .env to jimsegal-api
 
 ## System Preferences
