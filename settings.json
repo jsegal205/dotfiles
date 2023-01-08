@@ -1,11 +1,9 @@
 // visual studio settings file
 {
-  "window.zoomLevel": 1,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "editor.formatOnSave": true,
   "prettier.printWidth": 80,
   "files.exclude": {
     "**/.git": false,
@@ -17,5 +15,62 @@
   "editor.rulers": [80],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "html.format.wrapLineLength": 80,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "extensions.ignoreRecommendations": true,
+  "files.trimFinalNewlines": true,
+  "timeline.excludeSources": ["git-history"],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.leex": "html",
+    "*.heex": "html"
+  },
+  "[html-eex]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.trimAutoWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[phoenix-heex]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.trimAutoWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[javascriptreact typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[elixir]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnSave": true
 }
