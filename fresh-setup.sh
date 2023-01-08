@@ -61,8 +61,10 @@ brew cleanup
 
 brew install zsh
 
-echo "=== Installing Oh My Zsh ==="
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if test ! $(which asdf); then
+  echo "=== Installing Oh My Zsh ==="
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 PACKAGES=(
   asdf
@@ -108,8 +110,8 @@ brew install --cask --no-quarantine ${CASKS[@]}
 brew cleanup
 
 ASDF_PLUGINS=(
-  "elixir https://github.com/asdf-vm/asdf-elixir.git"
   "erlang https://github.com/asdf-vm/asdf-erlang.git"
+  "elixir https://github.com/asdf-vm/asdf-elixir.git"
   "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
   "python"
 )
@@ -119,16 +121,11 @@ for asdf_plugin in "${ASDF_PLUGINS[@]}"; do
   asdf plugin-add $asdf_plugin
 done
 
-# need to update the keyring per nodejs asdf plugin
-# https://github.com/asdf-vm/asdf-nodejs#install
-echo "=== Setting keyring for asdf NodeJS ==="
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-
 ASDF_VERSIONS=(
-  "elixir 1.14.2-otp-25"
   "erlang 25.1.2"
+  "elixir 1.14.2-otp-25"
   "nodejs 18.9.0"
-  "python 3.8.0"
+  "python 3.8.13"
 )
 
 echo "=== Installing asdf versions ==="
