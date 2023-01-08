@@ -61,8 +61,10 @@ brew cleanup
 
 brew install zsh
 
-echo "=== Installing Oh My Zsh ==="
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if test ! $(which asdf); then
+  echo "=== Installing Oh My Zsh ==="
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 PACKAGES=(
   asdf
