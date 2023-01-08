@@ -50,7 +50,9 @@ killall Dock
 if test ! $(which brew); then
   echo "=== Installing homebrew ==="
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo ' # Set  PATH, MANPATH, etc., for Homebrew.'
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jimsegal/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 brew update
