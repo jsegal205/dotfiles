@@ -12,16 +12,13 @@ ZSH_THEME="robbyrussell"
 plugins=(
   aws
   brew
-  bundler
   docker
   docker-compose
-  gem
+  elixir
   git
   npm
   pip
-  rails
   redis-cli
-  ruby
   vscode
   zsh-syntax-highlighting
 )
