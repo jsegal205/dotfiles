@@ -1,10 +1,16 @@
 // visual studio settings file
 {
-  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
   "editor.insertSpaces": true,
-  "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true,
-  "prettier.printWidth": 80,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "extensions.ignoreRecommendations": true,
+
   "files.exclude": {
     "**/.git": false,
     "**/.svn": true,
@@ -12,65 +18,44 @@
     "**/CVS": true,
     "**/.DS_Store": true
   },
-  "editor.rulers": [80],
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "html.format.wrapLineLength": 80,
-  "workbench.startupEditor": "none",
-  "extensions.ignoreRecommendations": true,
   "files.trimFinalNewlines": true,
-  "timeline.excludeSources": ["git-history"],
-  "[html]": {
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "git.openRepositoryInParentFolders": "never",
+  "prettier.printWidth": 80,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+  "terminal.integrated.fontSize": 12,
+  "window.zoomLevel": 1,
+  "workbench.startupEditor": "none",
+
+  // html stuffs
+  "[html javascript javascriptreact typescriptreact json jsonc typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "html.format.wrapLineLength": 80,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // elixir stuffs
+  "[elixir html-eex phoenix-heex]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html"
   },
   "files.associations": {
     "*.leex": "html",
     "*.heex": "html"
   },
-  "[html-eex]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.trimAutoWhitespace": false,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
-  },
-  "[phoenix-heex]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.trimAutoWhitespace": false,
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
-  },
-  "[javascriptreact typescriptreact]": {
+
+  // tailwind stuffs
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "window.zoomLevel": 1,
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[elixir]": {
-    "editor.defaultFormatter": "JakeBecker.elixir-ls",
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "security.workspace.trust.untrustedFiles": "open",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "editor.formatOnSave": true
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "phoenix-heex": "html"
+  }
 }
