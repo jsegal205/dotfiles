@@ -1,14 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="amuse"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
   aws
   brew
@@ -28,11 +21,22 @@ export PATH="$HOME/.node/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/bin:$PATH"
+# apple intel homebrew path
+# export PATH="/usr/local/bin:$PATH"
+
+# apple silicon homebrew path
+# export PATH="/opt/homebrew/bin:$PATH"
 
 . /usr/local/opt/asdf/asdf.sh
 
-RPROMPT="[%D{%m/%f/%y} | %D{%H:%M:%S}]"
+# Zsh configs
+PROMPT_EOL_MARK=''
+
+# Application configs
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Custom alias
+alias dadjoke="curl -H \"Accept: text/plain\" https://icanhazdadjoke.com/"
+
+# Code things
+export ERL_AFLAGS="-kernel shell_history enabled"
