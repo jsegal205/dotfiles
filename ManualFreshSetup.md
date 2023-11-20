@@ -4,36 +4,6 @@ Here are the following steps to remember to do that I have yet to figure out how
 
 ## Applications
 
-### Visual Studio Code
-
-- open chrome
-- log into lastpass
-- log into google
-- log into github
-- set up vs code sync extension
-
-///
-
-- run the following command
-
-```bash
-cp settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-```
-
-### iTerm2
-
-- load profile from ./iterm-default-profile.json
-
-OR manually
-
-- set up colors to be solarized dark
-- add profile keybindings of
-
-```
-⌥ + <- (Option + Left arrow) :: Escape Sequence b
-⌥ + -> (Option + Right arrow) :: Escape Sequence f
-```
-
 ## Projects
 
 - TODO: make this a script
@@ -61,20 +31,11 @@ OR manually
     git clone git@github.com:jsegal205/dotfiles.git
 ```
 
-## Services
-
-- add .env to jimsegal-api
-
 ## System Preferences
 
 ### Display and ScreenSaver
 
 - remove screen saver time
-
-### Keyboard
-
-- remove Siri from touch bar
-- add lock computer to touch bar
 
 ### Notifications
 
