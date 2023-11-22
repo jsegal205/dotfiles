@@ -29,8 +29,8 @@ else
   echo export PATH=\"/usr/local/bin:\$PATH\" >> $DEST_FILE
 fi
 
-log "Overwriting Zsh theme"
-cp -rf "./zsh/amuse.zsh-theme" "$ZSH/themes/amuse.zsh-theme"
+log "Setting custom Zsh theme"
+cp -rf "./zsh/jsegal_theme.zsh-theme" "$ZSH/custom/themes/jsegal_theme.zsh-theme"
 
 log "Installing Powerline Fonts"
 # clone

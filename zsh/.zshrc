@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="amuse"
+ZSH_THEME="jsegal_theme"
 
 plugins=(
   aws
@@ -27,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 # apple silicon homebrew path
 # export PATH="/opt/homebrew/bin:$PATH"
 
-. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 # Zsh configs
 PROMPT_EOL_MARK=''
