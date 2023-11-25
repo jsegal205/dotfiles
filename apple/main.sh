@@ -62,3 +62,8 @@ killall Dock
 log "Remove default programs that are bundled with OSX"
 sudo rm -rf /Applications/iMovie.app
 sudo rm -rf /Applications/GarageBand.app
+
+log "Creating default folders I always use"
+mkdir -p ~/personal
+mkdir -p ~/work
+mkdir -p ~/Desktop/slack-downloads
