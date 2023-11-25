@@ -17,18 +17,6 @@ DEST_FILE=~/$(echo $FILE_NAME)
 log "Copying $FILE_NAME file"
 cp "./zsh/$(echo $FILE_NAME)" $DEST_FILE
 
-if [[ $(arch) == 'arm64' ]]; then
-  log "Adding Apple Silicon brew path to rc file"
-
-  echo \\n\# Apple silicon homebrew path >> $DEST_FILE
-  echo export PATH=\"/opt/homebrew/bin:\$PATH\" >> $DEST_FILE
-else
-  log "Adding Apple intel brew path to rc file"
-
-  echo \\n\# Apple intel homebrew path >> $DEST_FILE
-  echo export PATH=\"/usr/local/bin:\$PATH\" >> $DEST_FILE
-fi
-
 log "Setting custom Zsh theme"
 cp -rf "./zsh/jsegal_theme.zsh-theme" "$ZSH/custom/themes/jsegal_theme.zsh-theme"
 
