@@ -21,11 +21,8 @@ export PATH="$HOME/.node/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# apple intel homebrew path
-# export PATH="/usr/local/bin:$PATH"
-
-# apple silicon homebrew path
-# export PATH="/opt/homebrew/bin:$PATH"
+# Homebrew path
+export PATH="$(brew --prefix)/bin:$PATH"
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 
