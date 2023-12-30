@@ -51,9 +51,6 @@
   },
 
   // tailwind stuffs
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "tailwindCSS.includeLanguages": {
     "elixir": "html",
     "phoenix-heex": "html"
