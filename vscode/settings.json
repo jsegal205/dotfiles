@@ -9,6 +9,7 @@
   "editor.rulers": [80],
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": true,
+  "editor.fontSize": 14,
   "extensions.ignoreRecommendations": true,
 
   "files.exclude": {
@@ -26,7 +27,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 14,
   "window.zoomLevel": 1,
   "workbench.startupEditor": "none",
 
@@ -55,4 +56,7 @@
     "elixir": "html",
     "phoenix-heex": "html"
   }
+  "scss.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore"
 }
