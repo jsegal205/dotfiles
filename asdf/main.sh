@@ -12,8 +12,8 @@ log "Setting up Languages via ASDF"
 ##############################################
 
 ASDF_PLUGINS=(
-  "erlang https://github.com/asdf-vm/asdf-erlang.git"
   "elixir https://github.com/asdf-vm/asdf-elixir.git"
+  "erlang https://github.com/asdf-vm/asdf-erlang.git"
   "nodejs https://github.com/asdf-vm/asdf-nodejs.git"
   "python"
 )

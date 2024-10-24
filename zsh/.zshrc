@@ -11,6 +11,7 @@ plugins=(
   git
   npm
   pip
+  pnpm
   redis-cli
   vscode
   zsh-syntax-highlighting
