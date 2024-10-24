@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -20,15 +20,16 @@ ASDF_PLUGINS=(
 
 log "Installing asdf plugins"
 for asdf_plugin in "${ASDF_PLUGINS[@]}"; do
-  asdf plugin-add $asdf_plugin
+  asdf plugin-add "$asdf_plugin"
 done
 
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
+KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
+export KERL_CONFIGURE_OPTIONS
 
-versions_file="./asdf/$(echo '.tool-versions')"
+versions_file="./asdf/.tool-versions"
 while read -r asdf_version; do
   log "Installing $asdf_version"
 
-  asdf install $asdf_version
-  asdf global $asdf_version
-done < $versions_file
+  asdf install "$asdf_version"
+  asdf global "$asdf_version"
+done < "$versions_file"

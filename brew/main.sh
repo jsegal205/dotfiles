@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -11,12 +11,12 @@ log "Setting up Homebrew and initial applications"
 
 ##############################################
 
-if test ! $(which brew); then
+if test ! "$(which brew)"; then
   log "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  log " # Set  PATH, MANPATH, etc., for Homebrew."
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jimsegal/.zprofile
+  log "# Set  PATH, MANPATH, etc., for Homebrew."
+  echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >> /Users/jimsegal/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   log "Homebrew already installed, updating"
@@ -28,7 +28,7 @@ brew cleanup
 log "Installing Zsh"
 brew install zsh
 
-if test ! $(which asdf); then
+if test ! "$(which asdf)"; then
   log "Installing Oh My Zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -50,16 +50,16 @@ PACKAGES=(
 )
 
 log "Installing brew packages"
-brew install ${PACKAGES[@]}
+brew install "${PACKAGES[@]}"
 
 SERVICES=(
   postgresql@14
 )
 log "Starting brew services"
-brew services start ${SERVICES[@]}
+brew services start "${SERVICES[@]}"
 
 log "ZSH Syntax Highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 
 CASKS=(
   firefox
@@ -72,6 +72,6 @@ CASKS=(
 )
 
 log "Installing brew casks"
-brew install --cask --no-quarantine ${CASKS[@]}
+brew install --cask --no-quarantine "${CASKS[@]}"
 
 brew cleanup

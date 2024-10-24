@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -13,4 +13,4 @@ log "Setting up Vim"
 
 FILE_NAME=".vimrc"
 log "Copying $FILE_NAME file"
-cp "./vim/$(echo $FILE_NAME)" ~/$(echo $FILE_NAME)
+cp "./vim/$FILE_NAME" ~/$FILE_NAME

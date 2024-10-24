@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -12,10 +12,10 @@ log "Setting up ZSH"
 ##############################################
 
 FILE_NAME=".zshrc"
-DEST_FILE=~/$(echo $FILE_NAME)
+DEST_FILE=~/$FILE_NAME
 
 log "Copying $FILE_NAME file"
-cp "./zsh/$(echo $FILE_NAME)" $DEST_FILE
+cp "./zsh/$FILE_NAME" $DEST_FILE
 
 log "Setting custom Zsh theme"
 cp -rf "./zsh/jsegal_theme.zsh-theme" "$ZSH/custom/themes/jsegal_theme.zsh-theme"

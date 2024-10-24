@@ -1,0 +1,19 @@
+name: CI Checks
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -e SC1091
+          # SC1091 - don't follow linked shell scripts
+        with:
+          ignore_names: .zshrc
