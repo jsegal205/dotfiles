@@ -73,6 +73,6 @@ DEFAULT_DIRS=(
 for dir in "${DEFAULT_DIRS[@]}"; do
   if [ ! -d "$dir" ]; then
     log "Creating $dir"
-    mkdir -p $dir
+    mkdir -p "$dir"
   fi
 done
