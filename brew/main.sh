@@ -37,16 +37,18 @@ PACKAGES=(
   asdf
   autoconf
   coreutils
+  colima
   fop
   git
   gpg
   libxslt
   mas
+  node
   npm
   openssl@1.1
+  pnpm
   postgresql@14
   wxwidgets
-  yarn
 )
 
 log "Installing brew packages"

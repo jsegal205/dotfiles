@@ -55,7 +55,7 @@
   "tailwindCSS.includeLanguages": {
     "elixir": "html",
     "phoenix-heex": "html"
-  }
+  },
   "scss.lint.unknownAtRules": "ignore",
   "css.lint.unknownAtRules": "ignore",
   "less.lint.unknownAtRules": "ignore"
