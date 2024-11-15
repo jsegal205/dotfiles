@@ -106,7 +106,7 @@ cp ./.zshrc ~/.zshrc
 
 ### WSL
 
-- go to <https://github.com/powerline/fonts/blob/master/RobotoMono/Roboto%20Mono%20for%20Powerline.ttf>
+- go to [powerline github](https://github.com/powerline/fonts/blob/master/RobotoMono/Roboto%20Mono%20for%20Powerline.ttf)
 - download
 - install
 - restart terminal
