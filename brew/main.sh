@@ -60,9 +60,6 @@ SERVICES=(
 log "Starting brew services"
 brew services start "${SERVICES[@]}"
 
-log "ZSH Syntax Highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
-
 CASKS=(
   firefox
   google-chrome

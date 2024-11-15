@@ -25,7 +25,9 @@ source $ZSH/oh-my-zsh.sh
 # Homebrew path
 export PATH="$(brew --prefix)/bin:$PATH"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+# asdf configs
+export PATH=~/.asdf/shims:$PATH
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # Zsh configs
 PROMPT_EOL_MARK=''
