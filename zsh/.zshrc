@@ -39,7 +39,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 alias dadjoke="curl -H \"Accept: text/plain\" https://icanhazdadjoke.com/"
 
 #   delete merged branches
-alias dmb="git branch --merged | egrep -v \"(^\*|master|main)\" | xargs git branch -d"
+alias dmb="git branch --merged | grep -Ev '(^\\*|main)\" | xargs -n 1 git branch -d"
 
 # Code things
 export ERL_AFLAGS="-kernel shell_history enabled"
