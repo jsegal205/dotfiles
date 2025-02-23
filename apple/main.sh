@@ -45,7 +45,8 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Remove all the things from the Dock
-defaults delete com.apple.dock persistent-apps; killall Dock
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
 
 # Set save dialog always expanded
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
