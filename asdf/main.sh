@@ -23,7 +23,8 @@ for asdf_plugin in "${ASDF_PLUGINS[@]}"; do
   asdf plugin-add "$asdf_plugin"
 done
 
-export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+export KERL_CONFIGURE_OPTIONS
 
 FILE_NAME=".tool-versions"
 DEST_FILE=~/$FILE_NAME
