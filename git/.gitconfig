@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+        name = Jim Segal
+        email = jsegal205@gmail.com
+        signingkey = XXXXXXXXXXXXXX
+[pull]
+        rebase = false
+[init]
+        defaultBranch = main
+[commit]
+        gpgsign = true

@@ -43,3 +43,4 @@ alias dmb="git branch --merged | grep -Ev '(^\\*|main)\" | xargs -n 1 git branch
 
 # Code things
 export ERL_AFLAGS="-kernel shell_history enabled"
+export GPG_TTY=$(tty)
