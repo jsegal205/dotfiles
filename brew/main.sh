@@ -28,7 +28,7 @@ brew cleanup
 log "Installing Zsh"
 brew install zsh
 
-if test ! "$(which asdf)"; then
+if test ! "$(which omz)"; then
   log "Installing Oh My Zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
@@ -45,7 +45,6 @@ PACKAGES=(
   mas
   node
   npm
-  openssl@1.1
   pnpm
   postgresql@14
   wxwidgets
@@ -62,7 +61,7 @@ brew services start "${SERVICES[@]}"
 
 CASKS=(
   firefox
-  google-chrome
+  obsidian
   postico
   postman
   slack
