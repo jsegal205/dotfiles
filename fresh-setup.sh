@@ -28,6 +28,9 @@ chmod -R 755 ..
 # vscode setup
 ./vscode/main.sh
 
+# git setup
+./git/main.sh
+
 # # should fix compdef errors like:
 # # ` compdef: unknown command or service: rails `
 # rm -f ~/.zcompdump*; compinit
