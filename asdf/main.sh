@@ -23,13 +23,14 @@ for asdf_plugin in "${ASDF_PLUGINS[@]}"; do
   asdf plugin-add "$asdf_plugin"
 done
 
-KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
+KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
 export KERL_CONFIGURE_OPTIONS
 
-versions_file="./asdf/.tool-versions"
-while read -r asdf_version; do
-  log "Installing $asdf_version"
+FILE_NAME=".tool-versions"
+DEST_FILE=~/$FILE_NAME
 
-  asdf install "$asdf_version"
-  asdf global "$asdf_version"
-done < "$versions_file"
+log "Copying $FILE_NAME file"
+cp "./asdf/$FILE_NAME" $DEST_FILE
+
+log "Installing asdf language versions"
+asdf install

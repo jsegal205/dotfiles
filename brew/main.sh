@@ -45,6 +45,7 @@ PACKAGES=(
   mas
   node
   npm
+  openssl
   pnpm
   postgresql@14
   wxwidgets
