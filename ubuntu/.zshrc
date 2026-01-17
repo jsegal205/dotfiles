@@ -43,3 +43,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # custom wsl gpg things
 export GPG_TTY=$(tty)
 gpg-connect-agent /bye >/dev/null
+
+# Run system updates on session start
+if [ -f ~/projects/dotfiles/ubuntu/wsl-update.sh ]; then
+    ~/projects/dotfiles/ubuntu/wsl-update.sh
+fi
