@@ -6,7 +6,7 @@ set -e
 source ./utils/main.sh
 
 # log "Updating permission to execute files in $(pwd)"
-chmod -R 755 ..
+chmod -R 755 .
 
 # Order of these scripts is important
 
