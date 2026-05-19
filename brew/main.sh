@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 # get some helper functions up in here
 source ./utils/main.sh
@@ -16,7 +16,7 @@ if test ! "$(which brew)"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   log "# Set  PATH, MANPATH, etc., for Homebrew."
-  echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >> /Users/jimsegal/.zprofile
+  echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >> "$HOME/.zprofile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   log "Homebrew already installed, updating"
@@ -30,7 +30,7 @@ brew install zsh
 
 if test ! "$(which omz)"; then
   log "Installing Oh My Zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 PACKAGES=(
@@ -39,12 +39,11 @@ PACKAGES=(
   coreutils
   colima
   fop
+  gh
   git
   gpg
   libxslt
   mas
-  node
-  npm
   openssl
   pnpm
   postgresql@14
@@ -61,7 +60,7 @@ log "Starting brew services"
 brew services start "${SERVICES[@]}"
 
 CASKS=(
-  firefox
+  brave-browser
   obsidian
   postico
   postman

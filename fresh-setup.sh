@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 # get some helper functions up in here
 source ./utils/main.sh
 
 # log "Updating permission to execute files in $(pwd)"
-chmod -R 755 ..
+chmod -R 755 .
 
 # Order of these scripts is important
 
