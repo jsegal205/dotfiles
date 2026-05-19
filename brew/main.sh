@@ -39,6 +39,7 @@ PACKAGES=(
   coreutils
   colima
   fop
+  gh
   git
   gpg
   libxslt
