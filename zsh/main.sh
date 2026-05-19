@@ -34,11 +34,8 @@ log "Setting custom Zsh theme"
 cp -rf "./zsh/jsegal_theme.zsh-theme" "$ZSH/custom/themes/jsegal_theme.zsh-theme"
 
 log "Installing Powerline Fonts"
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
+if [ ! -d "$HOME/.local/share/fonts" ] || ! fc-list | grep -q "Powerline"; then
+  git clone https://github.com/powerline/fonts.git --depth=1
+  (cd fonts && ./install.sh)
+  rm -rf fonts
+fi
