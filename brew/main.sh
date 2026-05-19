@@ -59,7 +59,7 @@ log "Starting brew services"
 brew services start "${SERVICES[@]}"
 
 CASKS=(
-  firefox
+  brave-browser
   obsidian
   postico
   postman
