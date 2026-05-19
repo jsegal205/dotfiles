@@ -18,8 +18,6 @@ else
   xcode-select --install
 fi
 
-log "Setting up OSX defaults"
-
 # create dir and set default location for screenshots
 mkdir -p ~/Desktop/screenshots
 defaults write com.apple.screencapture location ~/Desktop/screenshots
@@ -56,9 +54,9 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write com.apple.dock mineffect -string scale
 
 # kill things to take immediate effect
-killall SystemUIServer
-killall Finder
-killall Dock
+killall SystemUIServer || true
+killall Finder || true
+killall Dock || true
 
 log "Remove default programs that are bundled with OSX"
 sudo rm -rf /Applications/iMovie.app
