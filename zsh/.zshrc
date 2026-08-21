@@ -55,3 +55,10 @@ alias dmb="git branch --merged | grep -Ev '(^\\*|main)' | xargs -n 1 git branch 
 # Code things
 export ERL_AFLAGS="-kernel shell_history enabled"
 export GPG_TTY=$(tty)
+
+# make sure the agents gpg key is unlocked/cached so automated commits
+# (e.g. Claude Code) don't hit an interactive pinentry prompt mid-task
+AGENT_GPG_UID="Jim Segal (agents) <jsegal205+agents@gmail.com>"
+if ! echo "cache-check" | gpg --batch --pinentry-mode=cancel --local-user "$AGENT_GPG_UID" --clearsign >/dev/null 2>&1; then
+  echo "cache-check" | gpg --local-user "$AGENT_GPG_UID" --clearsign >/dev/null
+fi

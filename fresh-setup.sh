@@ -31,6 +31,9 @@ chmod -R 755 .
 # git setup
 ./git/main.sh
 
+# gpg setup
+./gpg/main.sh
+
 # # should fix compdef errors like:
 # # ` compdef: unknown command or service: rails `
 # rm -f ~/.zcompdump*; compinit
