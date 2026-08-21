@@ -34,10 +34,47 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-hi
 
 ## GPG commit signing
 
-Run `../gpg/main.sh` from this directory's parent (repo root). It generates
-a personal key and an "agents" key (skipping either that already exists),
-points `~/.gitconfig`'s `signingkey` at the personal one, and prints both
-public keys at the end - add them to GitHub > Settings > SSH and GPG keys.
+Follow the instructions on [github docs](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key?platform=linux)
+
+but if that link doesn't exist (for whatever reason) run:
+
+```sh
+gpg --full-generate-key
+```
+
+Follow the prompts to setup key. Save the passphrase for caching later.
+
+```sh
+gpg --list-secret-keys --keyid-format=long
+```
+
+Results will look like this:
+
+```sh
+$ gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot <hubot@example.com>
+ssb   4096R/4BB6D45482678BE3 2016-03-10
+```
+
+Copy the gpg key id. This is the value after the forward slash in the `sec` row. In the above, it will be `3AA5C34371567BD2`.
+
+Then run:
+
+```sh
+gpg --armor --export <gpg key id>
+```
+
+Add gpg key to github.
+
+Finally, update your local git config with the following statements:
+
+```sh
+git config --global commit.gpgsign true
+git config --global user.signingkey <gpg key id>
+```
 
 ### Cache gpg passphrase
 
