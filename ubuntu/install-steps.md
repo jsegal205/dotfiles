@@ -92,6 +92,14 @@ cp ./gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 Current TTL values are set for 400 days.
 
+### Pinentry-stuck helpers + pre-commit block
+
+Once `user.signingkey` is set above, run `./git/main.sh` (from the repo
+root) to install the pinentry helper scripts and a global pre-commit hook
+that blocks a commit rather than letting it hang on an invisible pinentry
+prompt — see [`../git/gpg-helpers/README.md`](../git/gpg-helpers/README.md)
+for what it does and why.
+
 ## For ZSH theme
 
 copy the .zshrc file into the root .zshrc file

@@ -1,0 +1,38 @@
+#!/bin/bash
+# Checks whether the next `git commit` in this repo would trigger a pinentry
+# prompt (because gpg-agent hasn't cached the signing key's passphrase yet),
+# instead of waiting to find out the hard way. Doesn't touch gpg-agent's
+# state — read-only query. Exit code doubles as the check result: 0 = safe
+# to sign silently, 1 = would prompt (used by the pre-commit hook to block).
+set -u
+
+if [ "$(git config --get commit.gpgsign 2>/dev/null)" != "true" ]; then
+    echo "commit.gpgsign is not enabled here — git commit won't try to sign or prompt."
+    exit 0
+fi
+
+KEYID="$(git config --get user.signingkey 2>/dev/null)"
+if [ -z "$KEYID" ]; then
+    echo "commit.gpgsign is on but no user.signingkey is configured; can't resolve the key." >&2
+    exit 1
+fi
+
+KEYGRIP="$(gpg --with-colons --with-keygrip --list-secret-keys "$KEYID" 2>/dev/null | awk -F: '
+    /^(sec|ssb)/ { sign = ($12 ~ /s/) }
+    /^grp/ { if (sign) { print $10; exit } sign = 0 }
+')"
+
+if [ -z "$KEYGRIP" ]; then
+    echo "Could not resolve a signing keygrip for $KEYID." >&2
+    exit 1
+fi
+
+CACHED="$(gpg-connect-agent "KEYINFO $KEYGRIP" /bye 2>/dev/null | awk '/^S KEYINFO/ {print $7}')"
+
+if [ "$CACHED" = "1" ]; then
+    echo "Cached: gpg-agent already has the passphrase for $KEYID — git commit will sign silently."
+    exit 0
+else
+    echo "Not cached: git commit would trigger a pinentry prompt for $KEYID right now." >&2
+    exit 1
+fi

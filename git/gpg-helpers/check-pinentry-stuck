@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Detect a hung pinentry process blocking gpg-agent's signing prompt.
+#
+# Symptom: `git commit` (or any `gpg --sign`) hangs indefinitely with no
+# visible passphrase prompt. Cause: pinentry tries to draw on a display/tty
+# that isn't actually visible to you (e.g. `--display :0` with no X server
+# in WSL, or pinentry-curses drawing on a /dev/tty that isn't your terminal).
+# gpg-agent only services one pinentry request at a time, so a stuck one
+# blocks every subsequent signing attempt, including from unrelated shells.
+#
+# This usually happens when Claude Code (run via a terminal) triggers a
+# `git commit` itself — its shell has no visible tty/display for pinentry
+# to draw on, so the prompt gets stuck instead of appearing.
+set -euo pipefail
+
+procs=$(pgrep -a -f '^pinentry' || true)
+
+if [[ -z "$procs" ]]; then
+	echo "No pinentry process running. gpg-agent is not blocked."
+	exit 0
+fi
+
+echo "Found running pinentry process(es):"
+echo "$procs"
+echo
+
+while read -r pid _; do
+	etime=$(ps -o etime= -p "$pid" 2>/dev/null | tr -d ' ')
+	echo "PID $pid has been running for: ${etime:-unknown}"
+done <<<"$procs"
+
+echo
+echo "If this has been running more than a minute or two and you never saw"
+echo "a passphrase prompt, it's almost certainly stuck (wrong DISPLAY, or a"
+echo "curses prompt drawn on a pty you can't see — e.g. another Claude Code"
+echo "session's sandboxed shell). Kill it to unblock gpg-agent:"
+echo
+while read -r pid _; do
+	echo "  kill $pid"
+done <<<"$procs"
