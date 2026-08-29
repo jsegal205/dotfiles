@@ -1,0 +1,16 @@
+#!/bin/bash
+# Blocks the commit if gpg-agent doesn't already have the signing passphrase
+# cached, instead of letting `git commit` invoke pinentry — which, from an
+# agent/background/sandboxed shell with no visible tty, hangs invisibly
+# instead of prompting. See ~/will-git-commit-prompt-gpg and
+# ~/find-stuck-gpg-modal-process.
+if [ -x "$HOME/will-git-commit-prompt-gpg" ]; then
+    if ! "$HOME/will-git-commit-prompt-gpg"; then
+        echo >&2
+        echo "Commit blocked: gpg-agent needs the passphrase unlocked from a terminal you can actually see." >&2
+        echo "Run something like: echo x | gpg --clearsign >/dev/null   from a visible terminal, enter the passphrase there, then retry the commit." >&2
+        echo "If a pinentry is already stuck instead of prompting, run: find-stuck-gpg-modal-process" >&2
+        exit 1
+    fi
+fi
+exit 0

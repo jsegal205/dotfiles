@@ -1,0 +1,3 @@
+#!/bin/bash
+# Wrapper so this is easy to find at ~ — actual logic lives in check-pinentry-stuck.
+exec check-pinentry-stuck "$@"
